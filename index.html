@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TraceAI — Fraud Intelligence</title>
+<link rel="stylesheet" href="css/theme.css"/>
+</head>
+<body>
+
+<!-- ═══════════ LOGIN ═══════════ -->
+<div id="view-login" class="auth-screen">
+  <div class="auth-card">
+    <div class="auth-logo">
+      <div class="logo-icon">T</div>
+      <div>
+        <span class="logo-name">TraceAI</span>
+        <span class="logo-sub">Fraud Intelligence — AlNakheel Trading Co.</span>
+      </div>
+    </div>
+    <div id="api-status" class="api-pill checking">Connecting to AI service…</div>
+    <form id="login-form" autocomplete="off">
+      <div class="form-group">
+        <label class="form-label" for="login-user">Analyst</label>
+        <select id="login-user"></select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="login-pin">PIN</label>
+        <input type="password" id="login-pin" placeholder="••••" maxlength="8" required/>
+      </div>
+      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center;padding:10px">Sign in</button>
+      <div id="login-error" class="form-hint" style="color:var(--danger);display:none;margin-top:8px"></div>
+    </form>
+    <div class="auth-foot">Authorized personnel only. All activity is recorded in the immutable audit trail.</div>
+  </div>
+</div>
+
+<!-- ═══════════ APP SHELL ═══════════ -->
+<div id="app" class="shell" style="display:none">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">
+        <div class="logo-icon">T</div>
+        <div>
+          <span class="logo-name">TraceAI</span>
+          <span class="logo-sub">Fraud Intelligence</span>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-section">Monitoring</div>
+    <div class="nav-item" data-view="dashboard"><span class="nav-icon">◈</span> Dashboard</div>
+    <div class="nav-item" data-view="queue"><span class="nav-icon">☰</span> Case Queue <span class="nav-badge" id="queue-count"></span></div>
+    <div class="sidebar-section">Governance</div>
+    <div class="nav-item" data-view="audit"><span class="nav-icon">✓</span> Audit Trail</div>
+    <div class="sidebar-footer">
+      <div class="user-card" id="logout-card" title="Sign out">
+        <div class="user-avatar" id="me-avatar"></div>
+        <div>
+          <div class="user-name" id="me-name"></div>
+          <div class="user-role" id="me-role"></div>
+        </div>
+        <div class="user-status"></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title" id="page-title">Dashboard</div>
+        <div class="topbar-breadcrumb" id="page-crumb"></div>
+      </div>
+      <div class="topbar-actions">
+        <span id="engine-pill" class="api-pill checking">AI engine</span>
+      </div>
+    </div>
+    <div class="page-content" id="content"></div>
+  </main>
+</div>
+
+<div id="toast-container"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
